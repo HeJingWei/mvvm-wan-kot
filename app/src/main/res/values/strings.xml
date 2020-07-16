@@ -1,0 +1,35 @@
+<resources>
+    <string name="app_name">玩安卓</string>
+
+    <string name="network_connection_failed">网络连接失败</string>
+    <string name="network_request_timeout">网络请求超时</string>
+    <string name="api_data_parse_error">数据解析错误</string>
+    <string name="load_failed">加载失败，请点击重试</string>
+    <string name="load_end">没有更多了</string>
+    <string name="load_complete">加载完成</string>
+    <string name="loading">正在加载中&#8230;</string>
+    <string name="login_ing">正在登录&#8230;</string>
+    <string name="register_ing">正在注册&#8230;</string>
+    <string name="reload">重新加载</string>
+    <string name="network_not_available">网络似乎除了点问题&#8230;</string>
+    <string name="no_data">没有相关数据</string>
+
+    <string name="search_hint">搜索关键词以空格隔开</string>
+
+    <string name="home_mine_title">个人中心</string>
+    <string name="home_mine_integral">积分中心</string>
+    <string name="home_mine_collect">我的收藏</string>
+    <string name="home_mine_history">历史记录</string>
+    <string name="home_mine_setting">设置</string>
+    <string name="home_mine_login">登录/注册</string>
+
+    <string name="login">登录</string>
+    <string name="login_success">登录成功</string>
+    <string name="register_success">注册成功</string>
+    <string name="account">账号</string>
+    <string name="password">密码</string>
+    <string name="re_password">确认密码</string>
+    <string name="register">注册</string>
+    <string name="login_wan_android">WANANDROID</string>
+    <string name="exit_login">退出登录</string>
+</resources>
