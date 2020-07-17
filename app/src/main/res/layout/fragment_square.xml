@@ -13,7 +13,7 @@
         android:layout_width="match_parent"
         android:id="@+id/popularRefreshLayout"
         onRefresh="@{vm.onRefresh}"
-        isRefresh="@{vm.uiState.showLoading}"
+        binding:isRefresh="@{vm.uiState.showLoading}"
         android:layout_height="match_parent">
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/popularRecycleView"
@@ -21,7 +21,6 @@
             android:layout_height="match_parent"
             binding:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:layout_marginTop="20dp"
-            itemBottomPadding="10dp"
             adapter="@{adapter}"
             >
         </androidx.recyclerview.widget.RecyclerView>

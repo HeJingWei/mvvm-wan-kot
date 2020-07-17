@@ -27,7 +27,7 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
                 this@SquareFragment.activity?.showToast(link)
             }
             setOnItemClickListener { adapter, view, position ->
-                when(view.id){
+                when (view.id) {
                     R.id.collect -> {
 
                     }
@@ -55,12 +55,11 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
                         setList(list)
                     } else {
                         addData(list)
-                        squareAdapter.loadMoreModule.loadMoreComplete()
+                        loadMoreModule.loadMoreComplete()
                     }
-                    squareAdapter.loadMoreModule.isEnableLoadMore = true
+                    if (it.showEnd) loadMoreModule.loadMoreEnd()
                 }
             }
-            if (it.showEnd) squareAdapter.loadMoreModule.loadMoreEnd(it.showEnd)
         })
     }
 

@@ -72,6 +72,7 @@ dependencies {
     implementation Deps.koin_androidx_viewmodel
     implementation Deps.glideTransformations
     implementation Deps.loading_helper
+    implementation Deps.l_dialog
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

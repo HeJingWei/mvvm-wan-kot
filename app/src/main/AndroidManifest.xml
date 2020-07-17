@@ -45,6 +45,15 @@
         <activity android:name=".ui.login.register.RegisterActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             />
+        <activity android:name=".ui.setting.SettingActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            />
+        <activity android:name=".ui.integral.IntegralActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            />
+        <activity android:name=".ui.integral.IntegralRankActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+            />
     </application>
 
 </manifest>

@@ -32,4 +32,12 @@
     <string name="register">注册</string>
     <string name="login_wan_android">WANANDROID</string>
     <string name="exit_login">退出登录</string>
+    <string name="exit_login_success">已退出登录</string>
+
+    <string name="integral_title">我的积分</string>
+    <string name="integral_rank">排行榜</string>
+
+    <string name="confirm">确认</string>
+    <string name="cancel">取消</string>
+    <string name="refresh_success">刷新成功</string>
 </resources>

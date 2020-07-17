@@ -25,7 +25,7 @@ class SquareViewModel constructor(val squareRepository: SquareRepository) : Base
                 return@launchOnUI
             }
             emitArticleUiState(isRefresh = isRefresh,showLoading = false,article = squareList.datas)
-
+            currPage += 1
         }, error = {
             emitArticleUiState(showLoading = false)
         })

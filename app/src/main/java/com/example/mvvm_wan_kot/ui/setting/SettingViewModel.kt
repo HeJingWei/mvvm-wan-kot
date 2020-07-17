@@ -8,7 +8,7 @@ class SettingViewModel(val settingRepository: SettingRepository) : BaseViewModel
 
     private val _uiState = MutableLiveData<SettingUiModel>()
     val uiState: LiveData<SettingUiModel>
-        get() = uiState
+        get() = _uiState
 
     fun isExitLogin() {
         emitSettingUiModel(isExit = settingRepository.isLogin())

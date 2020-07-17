@@ -40,6 +40,7 @@ object Versions {
     const val viewmodel_ktx = "2.2.0"
     const val lifecycle_extension = "2.2.0"
     const val loading_helper = "2.1.0"
+    const val l_dialog = "V1.0.4"
 }
 
 object Deps {
@@ -85,5 +86,6 @@ object Deps {
     const val koin_androidx_scope = "org.koin:koin-androidx-scope:${Versions.koin}"
     const val koin_androidx_viewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
     const val loading_helper = "com.dylanc:loadinghelper:${Versions.loading_helper}"
+    const val l_dialog = "com.github.liys666666:LDialog:${Versions.l_dialog}"
 
 }

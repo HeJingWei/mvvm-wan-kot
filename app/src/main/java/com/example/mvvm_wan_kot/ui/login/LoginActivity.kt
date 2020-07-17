@@ -8,6 +8,8 @@ import com.example.mvvm_wan_kot.common.base.BaseVMActivity
 import com.example.mvvm_wan_kot.common.ext.setOnClickListener
 import com.example.mvvm_wan_kot.common.ext.setToolbar
 import com.example.mvvm_wan_kot.common.ext.showToast
+import com.example.mvvm_wan_kot.common.utils.ActivityManager
+import com.example.mvvm_wan_kot.ui.login.register.RegisterActivity
 import kotlinx.android.synthetic.main.activity_login.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -27,8 +29,12 @@ class LoginActivity : BaseVMActivity<LoginViewModel>() {
             setVariable(BR.vm, mViewModel)
         }
         setToolbar(getString(R.string.login), NavIconType.BACK)
-        setOnClickListener(login) {
-            mViewModel.login()
+        setOnClickListener(login,register) {
+            when(this){
+                login ->  mViewModel.login()
+                register -> ActivityManager.start(RegisterActivity::class.java)
+            }
+
         }
     }
 

@@ -29,7 +29,7 @@ class SplashActivity : BaseActivity() {
         window.decorView.postDelayed({
             ActivityManager.start(MainActivity::class.java)
             ActivityManager.finish(SplashActivity::class.java)
-        }, 3000)
+        }, 1500)
     }
 
     override fun initData() {

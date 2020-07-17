@@ -17,7 +17,7 @@ class MineViewModel constructor(val mineRepository: MineRepository) : BaseViewMo
             val userInfo = mineRepository.getUserInfo()
             emitMineUiModel(true,userInfo?.username,userInfo?.id)
         }else{
-            emitMineUiModel(false,userName = App.Companion.instance.getString(R.string.home_mine_title))
+            emitMineUiModel(false,userName = App.Companion.instance.getString(R.string.home_mine_login))
         }
     }
 

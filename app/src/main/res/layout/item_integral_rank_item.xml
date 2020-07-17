@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="integral"
+            type="com.example.mvvm_wan_kot.model.bean.IntegralBean" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="14dp">
+
+        <TextView
+            android:id="@+id/integralRank"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorSecondary"
+            android:text="@{integral.rank}"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/integralRankUser"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="12sp"
+            android:text="@{integral.username}" />
+
+        <TextView
+            android:id="@+id/integralRankLevel"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(integral.level)}"
+            android:textColor="@color/textColorSecondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/integralRankPoint"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@{String.valueOf(integral.coinCount)}"
+            android:textSize="12sp" />
+    </LinearLayout>
+</layout>

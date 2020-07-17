@@ -7,7 +7,9 @@ import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.ext.setOnClickListener
 import com.example.mvvm_wan_kot.common.utils.ActivityManager
+import com.example.mvvm_wan_kot.ui.integral.IntegralActivity
 import com.example.mvvm_wan_kot.ui.login.LoginActivity
+import com.example.mvvm_wan_kot.ui.setting.SettingActivity
 import kotlinx.android.synthetic.main.fragment_mine.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -15,15 +17,19 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
 
     override fun getLayoutResId() = R.layout.fragment_mine
 
-    override fun initVM(): MineViewModel  = getViewModel()
+    override fun initVM(): MineViewModel = getViewModel()
 
     override fun initView() {
         mBinding.run {
-            setVariable(BR.vm,mViewModel)
+            setVariable(BR.vm, mViewModel)
         }
 
-        setOnClickListener(homeMineName){
-            ActivityManager.start(LoginActivity::class.java)
+        setOnClickListener(homeMineName, homeMineSetting,homeMineIntegral) {
+            when (this) {
+                homeMineName -> ActivityManager.start(LoginActivity::class.java)
+                homeMineSetting -> ActivityManager.start(SettingActivity::class.java)
+                homeMineIntegral -> ActivityManager.start(IntegralActivity::class.java)
+            }
         }
     }
 
@@ -39,8 +45,10 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
     override fun startObserve() {
         mViewModel.apply {
             uiState.observe(viewLifecycleOwner, Observer {
-                if (it.isLogin) homeMineId.visibility = View.VISIBLE else homeMineId.visibility = View.GONE
+                if (it.isLogin) homeMineId.visibility = View.VISIBLE else homeMineId.visibility =
+                    View.GONE
                 homeMineName.isEnabled = !it.isLogin
+                homeMineIntegral.isEnabled = it.isLogin
             })
         }
     }

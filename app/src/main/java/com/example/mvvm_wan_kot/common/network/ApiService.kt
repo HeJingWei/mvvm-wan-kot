@@ -1,9 +1,6 @@
 package com.example.mvvm_wan_kot.common.network
 
-import com.example.mvvm_wan_kot.model.bean.Article
-import com.example.mvvm_wan_kot.model.bean.Banner
-import com.example.mvvm_wan_kot.model.bean.Pagination
-import com.example.mvvm_wan_kot.model.bean.User
+import com.example.mvvm_wan_kot.model.bean.*
 import retrofit2.http.*
 
 interface ApiService {
@@ -40,4 +37,16 @@ interface ApiService {
     //获取广场数据
     @GET("/user_article/list/{page}/json")
     suspend fun getUserArticleList(@Path("page") page: Int): ApiResult<Pagination<Article>>
+
+    //获取个人积分
+    @GET("lg/coin/userinfo/json")
+    suspend fun getUserIntegral(): ApiResult<IntegralBean>
+
+    //获取个人积分获取列表
+    @GET("lg/coin/list/{page}/json")
+    suspend fun getIntegralList(@Path("page") page: Int): ApiResult<Pagination<IntegralItem>>
+
+    //获取积分排行榜
+    @GET("coin/rank/{page}/json")
+    suspend fun getIntegralRankList(@Path("page") page: Int): ApiResult<Pagination<IntegralBean>>
 }
