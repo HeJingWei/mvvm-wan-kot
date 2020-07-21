@@ -52,6 +52,9 @@
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             />
         <activity android:name=".ui.integral.IntegralRankActivity"
+        android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
+        />
+        <activity android:name=".ui.collect.CollectActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation"
             />
     </application>

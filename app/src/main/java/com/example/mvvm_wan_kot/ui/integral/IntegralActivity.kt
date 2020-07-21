@@ -35,10 +35,10 @@ class IntegralActivity : BaseVMActivity<IntegralViewModel>() {
         setToolbar(getString(R.string.integral_title), NavIconType.BACK)
         headView =
             LayoutInflater.from(this).inflate(R.layout.activity_integral_headview, null, false)
-        DataBindingUtil.bind<ViewDataBinding>(headView)?.setVariable(BR.vm, mViewModel)
         setOnClickListener(headView.integralGoRank) {
             ActivityManager.start(IntegralRankActivity::class.java)
         }
+
         integralItemAdapter.run {
             addHeaderView(headView)
             loadMoreModule.isEnableLoadMore = true
@@ -52,13 +52,16 @@ class IntegralActivity : BaseVMActivity<IntegralViewModel>() {
     override fun initData() {
         mViewModel.run {
             getUserIntegral()
-            getIntegralList(false)
+            getIntegralList(true)
         }
     }
 
     override fun startObserve() {
-        mViewModel.apply {
+         mViewModel.apply {
             uiState.observe(this@IntegralActivity, Observer {
+                it.userIntegral?.let { bean ->
+                    DataBindingUtil.bind<ViewDataBinding>(headView)?.setVariable(BR.integral, bean)
+                }
                 it.integralList?.let { list ->
                     integralItemAdapter.run {
                         if (it.isRefresh) {
@@ -67,9 +70,9 @@ class IntegralActivity : BaseVMActivity<IntegralViewModel>() {
                             addData(list)
                             loadMoreModule.loadMoreComplete()
                         }
-                        if (it.showEnd) loadMoreModule.loadMoreEnd()
                     }
                 }
+                if (it.showEnd) integralItemAdapter.loadMoreModule.loadMoreEnd()
             })
         }
     }

@@ -36,12 +36,11 @@ abstract class BaseVMActivity<VM : BaseViewModel>(useDataBinding: Boolean = true
     open fun getLayoutResId(): Int = 0
 
 
-    fun showProgressDialog(@StringRes message: Int) {
-
+    fun showProgressDialog(@StringRes message: Int = 0,isCancel : Boolean = true) {
         if (!this::progressDialogFragment.isInitialized) {
             progressDialogFragment = ProgressDialogFragment.newInstance()
         }
-        progressDialogFragment.show(supportFragmentManager, message, false)
+        progressDialogFragment.show(supportFragmentManager, message, isCancel)
     }
 
     fun hideProgressDialog() {

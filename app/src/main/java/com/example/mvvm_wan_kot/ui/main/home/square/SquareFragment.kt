@@ -57,9 +57,9 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
                         addData(list)
                         loadMoreModule.loadMoreComplete()
                     }
-                    if (it.showEnd) loadMoreModule.loadMoreEnd()
                 }
             }
+            if (it.showEnd) squareAdapter.loadMoreModule.loadMoreEnd()
         })
     }
 

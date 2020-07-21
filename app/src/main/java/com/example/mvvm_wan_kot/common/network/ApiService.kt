@@ -49,4 +49,12 @@ interface ApiService {
     //获取积分排行榜
     @GET("coin/rank/{page}/json")
     suspend fun getIntegralRankList(@Path("page") page: Int): ApiResult<Pagination<IntegralBean>>
+
+    //获取个人收藏
+    @GET("lg/collect/list/{page}/json")
+    suspend fun getCollect(@Path("page") page: Int): ApiResult<Pagination<Article>>
+
+    //取消收藏
+    @POST("lg/uncollect_originId/{id}/json")
+    suspend fun collectCancel(@Path("id") id: Int): ApiResult<Any?>
 }

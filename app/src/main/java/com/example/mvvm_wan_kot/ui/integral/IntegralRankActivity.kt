@@ -23,13 +23,14 @@ class IntegralRankActivity : BaseVMActivity<IntegralViewModel>() {
 
     override fun initView() {
         mBinding.run {
-            setVariable(BR.vm,mViewModel)
-            setVariable(BR.adapter,integralRankAdapter)
+            setVariable(BR.vm, mViewModel)
+            setVariable(BR.adapter, integralRankAdapter)
         }
 
-        setToolbar(getString(R.string.integral_rank),NavIconType.BACK)
+        setToolbar(getString(R.string.integral_rank), NavIconType.BACK)
 
-        val headView = LayoutInflater.from(this).inflate(R.layout.item_integral_rank_item,null,false)
+        val headView =
+            LayoutInflater.from(this).inflate(R.layout.item_integral_rank_item, null, false)
         headView.run {
             integralRank.text = "排名"
             integralRankUser.text = "用户"
@@ -45,7 +46,7 @@ class IntegralRankActivity : BaseVMActivity<IntegralViewModel>() {
             }
         }
 
-        integralRankRecycleView.addItemDecoration(SpaceItemDecoration(2,0,0,0))
+        integralRankRecycleView.addItemDecoration(SpaceItemDecoration(2, 0, 0, 0))
     }
 
     override fun initData() {
@@ -55,17 +56,16 @@ class IntegralRankActivity : BaseVMActivity<IntegralViewModel>() {
     override fun startObserve() {
         mViewModel.run {
             uiState.observe(this@IntegralRankActivity, Observer {
-                it.integralRankList?.let {
-                    list ->
+                it.integralRankList?.let { list ->
                     integralRankAdapter.run {
                         if (it.isRefresh) setList(list)
-                        else{
+                        else {
                             addData(list)
                             loadMoreModule.loadMoreComplete()
                         }
-                        if(it.showRankEnd) loadMoreModule.loadMoreEnd()
                     }
                 }
+                if (it.showRankEnd) integralRankAdapter.loadMoreModule.loadMoreEnd()
             })
         }
     }

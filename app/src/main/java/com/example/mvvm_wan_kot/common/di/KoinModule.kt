@@ -1,5 +1,8 @@
 package com.example.mvvm_wan_kot.common.di
 
+import com.example.mvvm_wan_kot.ui.collect.CollectRepository
+import com.example.mvvm_wan_kot.ui.collect.CollectViewModel
+import com.example.mvvm_wan_kot.ui.common.CollectOperateRepository
 import com.example.mvvm_wan_kot.ui.integral.IntegralRepository
 import com.example.mvvm_wan_kot.ui.integral.IntegralViewModel
 import com.example.mvvm_wan_kot.ui.login.LoginRepository
@@ -54,6 +57,9 @@ val viewModelModule = module {
     viewModel {
         IntegralViewModel(get())
     }
+    viewModel {
+        CollectViewModel(get(),get())
+    }
 }
 
 val repositoryModule = module {
@@ -83,6 +89,12 @@ val repositoryModule = module {
     }
     single {
         IntegralRepository()
+    }
+    single {
+        CollectOperateRepository()
+    }
+    single {
+        CollectRepository()
     }
 }
 

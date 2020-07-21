@@ -18,6 +18,7 @@ data class Article(
     val niceDate: String,
     val niceShareDate: String,
     val origin: String,
+    val originId :Int,
     val prefix: String,
     val projectLink: String,
     val publishTime: Long,

@@ -32,7 +32,7 @@ class ProgressDialogFragment : DialogFragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        tvMessage.text = getString(messageResId ?:  R.string.loading)
+        tvMessage.text = if (messageResId!=0) messageResId?.let { getString(it) } else getString(R.string.loading)
     }
 
     fun show(
