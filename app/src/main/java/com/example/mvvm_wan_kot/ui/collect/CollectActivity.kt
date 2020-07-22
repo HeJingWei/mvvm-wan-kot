@@ -29,6 +29,7 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
         setToolbar(getString(R.string.collect_title), NavIconType.BACK)
 
         collectAdapter.run {
+            setEmptyView(R.layout.adapter_empty_view)
             setOnItemClickListener { _, _, position ->
                 val link = collectAdapter.data[position].link
                 showToast(link)
@@ -43,7 +44,6 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
                         data.removeAt(position)
                         notifyDataSetChanged()
                     }
-
                 }
             }
             loadMoreModule.isEnableLoadMore = true

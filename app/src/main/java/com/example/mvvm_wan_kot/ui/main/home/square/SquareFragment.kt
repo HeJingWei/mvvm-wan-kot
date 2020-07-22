@@ -60,6 +60,10 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
                 }
             }
             if (it.showEnd) squareAdapter.loadMoreModule.loadMoreEnd()
+            if (it.showDialogLoading) showProgressDialog() else hideProgressDialog()
+            it.collectToast?.let { collectToast ->
+                activity?.showToast(collectToast)
+            }
         })
     }
 

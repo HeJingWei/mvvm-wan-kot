@@ -31,7 +31,7 @@
             android:textColor="@color/textColorPrimary"
             android:id="@+id/collectTitle"
             android:layout_marginTop="6dp"
-            android:text="@{article.title}"
+            htmlToSpanned="@{article.title}"
             app:layout_constraintTop_toBottomOf="@+id/collectChapterName"
             app:layout_constraintLeft_toLeftOf="parent"
             />

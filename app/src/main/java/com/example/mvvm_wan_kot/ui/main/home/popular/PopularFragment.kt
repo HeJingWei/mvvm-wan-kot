@@ -36,6 +36,13 @@ class PopularFragment : BaseVMFragment<PopularViewModel>() {
             }
             loadMoreModule.isEnableLoadMore = false
             addHeaderView(banner)
+            setOnItemChildClickListener { _, view, position ->
+                if (view.id == R.id.collect) {
+                    mViewModel.collect(data[position].collect, data[position].id)
+                    data[position].collect = !data[position].collect
+                    notifyItemChanged(position)
+                }
+            }
         }
         initBanner()
     }
@@ -46,6 +53,7 @@ class PopularFragment : BaseVMFragment<PopularViewModel>() {
 
     override fun startObserve() {
         mViewModel.uiState.observe(this@PopularFragment, Observer {
+            if (it.showDialogLoading) showProgressDialog() else hideProgressDialog()
             it.banner?.let { list ->
                 setBanner(list)
             }
@@ -55,6 +63,9 @@ class PopularFragment : BaseVMFragment<PopularViewModel>() {
                         setList(list)
                     }
                 }
+            }
+            it.collectToast?.let { collectToast ->
+                activity?.showToast(collectToast)
             }
         })
     }
@@ -67,7 +78,7 @@ class PopularFragment : BaseVMFragment<PopularViewModel>() {
             setImageLoader(GlideImageLoader())
             setOnBannerListener { position ->
                 run {
-                    val url =  bannerUrls[position]
+                    val url = bannerUrls[position]
                     this@PopularFragment.activity?.showToast(url)
                 }
             }

@@ -28,19 +28,22 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
             setVariable(BR.vm, mViewModel)
         }
 
-        setOnClickListener(homeMineName, homeMineSetting,homeMineIntegral,homeMineCollect) {
+        setOnClickListener(homeMineName, homeMineSetting, homeMineIntegral, homeMineCollect) {
             when (this) {
-                homeMineName -> ActivityManager.start(LoginActivity::class.java)
-                homeMineSetting -> ActivityManager.start(SettingActivity::class.java)
-                homeMineIntegral -> jumpOrLogin(IntegralActivity::class.java)
-                homeMineCollect -> jumpOrLogin(CollectActivity::class.java)
+                homeMineName -> jumpActivity(LoginActivity::class.java)
+                homeMineSetting -> jumpActivity(SettingActivity::class.java)
+                homeMineIntegral -> checkLogin(
+                    then = { jumpActivity(IntegralActivity::class.java) }
+                )
+                homeMineCollect -> checkLogin(
+                    then = { jumpActivity(CollectActivity::class.java) }
+                )
             }
         }
     }
 
-    private fun jumpOrLogin(clazz: Class<out Activity>){
-        if (!isLogin) ActivityManager.start(LoginActivity::class.java)
-        else ActivityManager.start(clazz)
+    private fun jumpActivity(clazz: Class<out Activity>) {
+        ActivityManager.start(clazz)
     }
 
     override fun onResume() {

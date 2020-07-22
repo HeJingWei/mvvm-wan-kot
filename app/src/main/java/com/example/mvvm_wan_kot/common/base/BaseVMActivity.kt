@@ -6,6 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import com.example.mvvm_wan_kot.common.custom.ProgressDialogFragment
+import com.example.mvvm_wan_kot.common.utils.ActivityManager
+import com.example.mvvm_wan_kot.ui.login.LoginActivity
 
 abstract class BaseVMActivity<VM : BaseViewModel>(useDataBinding: Boolean = true): AppCompatActivity() {
 
@@ -46,6 +48,20 @@ abstract class BaseVMActivity<VM : BaseViewModel>(useDataBinding: Boolean = true
     fun hideProgressDialog() {
         if (this::progressDialogFragment.isInitialized && progressDialogFragment.isVisible) {
             progressDialogFragment.dismiss()
+        }
+    }
+
+    /**
+     * 是否登录，如果登录了就执行then，没有登录就直接跳转登录界面
+     * @return true-已登录，false-未登录
+     */
+    fun checkLogin(then: (() -> Unit)? = null): Boolean {
+        return if (BaseRepository().isLogin()) {
+            then?.invoke()
+            true
+        } else {
+            ActivityManager.start(LoginActivity::class.java)
+            false
         }
     }
 }

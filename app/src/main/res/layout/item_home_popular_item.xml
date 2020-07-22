@@ -34,49 +34,48 @@
             android:layout_marginLeft="12dp"
             android:background="@drawable/shape_bg_tag"
             android:text="置顶"
-            android:textSize="12sp"
             android:textColor="@color/textColorSecondary"
+            android:textSize="12sp"
             app:layout_constraintLeft_toRightOf="@+id/author"
             app:layout_constraintTop_toTopOf="@+id/author" />
 
         <TextView
             android:id="@+id/title"
+            htmlToSpanned="@{article.title}"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="@{article.title}"
-            android:textSize="15sp"
             android:textColor="@color/textColorPrimary"
+            android:textSize="15sp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/author" />
 
         <TextView
+            android:id="@+id/chapterName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/chapterName"
+            android:text='@{article.chapterName + "/" +article.superChapterName}'
+            android:textColor="@color/textColorSecondary"
             android:textSize="12sp"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:textColor="@color/textColorSecondary"
-            android:text='@{article.chapterName + "/" +article.superChapterName}'/>
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
+            android:id="@+id/shareTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/shareTime"
-            app:layout_constraintTop_toBottomOf="@+id/title"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:textSize="12sp"
+            android:text="@{article.niceDate}"
             android:textColor="@color/textColorSecondary"
-            android:text="@{article.niceDate}"/>
-        
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
+
         <ImageView
+            android:id="@+id/collect"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:src="@mipmap/collect_icon"
-            android:id="@+id/collect"
-            app:layout_constraintTop_toBottomOf="@+id/title"
             app:layout_constraintRight_toRightOf="parent"
-            />
+            app:layout_constraintTop_toBottomOf="@+id/title" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -11,6 +11,8 @@ import com.example.mvvm_wan_kot.ui.login.register.RegisterRepository
 import com.example.mvvm_wan_kot.ui.login.register.RegisterViewModel
 import com.example.mvvm_wan_kot.ui.main.home.popular.PopularRepository
 import com.example.mvvm_wan_kot.ui.main.home.popular.PopularViewModel
+import com.example.mvvm_wan_kot.ui.main.home.project.ProjectRepository
+import com.example.mvvm_wan_kot.ui.main.home.project.ProjectViewModel
 import com.example.mvvm_wan_kot.ui.main.home.square.SquareRepository
 import com.example.mvvm_wan_kot.ui.main.home.square.SquareViewModel
 import com.example.mvvm_wan_kot.ui.main.mine.MineRepository
@@ -40,10 +42,10 @@ val viewModelModule = module {
         SystemViewModel(get())
     }
     viewModel {
-        PopularViewModel(get())
+        PopularViewModel(get(),get())
     }
     viewModel {
-        SquareViewModel(get())
+        SquareViewModel(get(),get())
     }
     viewModel {
         LoginViewModel(get())
@@ -59,6 +61,9 @@ val viewModelModule = module {
     }
     viewModel {
         CollectViewModel(get(),get())
+    }
+    viewModel {
+        ProjectViewModel(get(),get())
     }
 }
 
@@ -95,6 +100,9 @@ val repositoryModule = module {
     }
     single {
         CollectRepository()
+    }
+    single {
+        ProjectRepository()
     }
 }
 

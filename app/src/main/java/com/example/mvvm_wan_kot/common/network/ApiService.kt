@@ -30,6 +30,10 @@ interface ApiService {
     @GET("/article/top/json")
     suspend fun getTopArticleList(): ApiResult<List<Article>>
 
+    //获取首页文章
+    @GET("article/list/{page}/json")
+    suspend fun getHomeArticle(@Path("page") page: Int): ApiResult<Pagination<Article>>
+
     //获取banner
     @GET("/banner/json")
     suspend fun getBanner(): ApiResult<List<Banner>>
@@ -54,7 +58,19 @@ interface ApiService {
     @GET("lg/collect/list/{page}/json")
     suspend fun getCollect(@Path("page") page: Int): ApiResult<Pagination<Article>>
 
+    //收藏
+    @POST("lg/collect/{id}/json")
+    suspend fun collect(@Path("id") id: Int): ApiResult<Any?>
+
     //取消收藏
     @POST("lg/uncollect_originId/{id}/json")
     suspend fun collectCancel(@Path("id") id: Int): ApiResult<Any?>
+
+    //获取公众号列表
+    @GET("wxarticle/chapters/json")
+    suspend fun getProjectChapters() : ApiResult<List<ProjectChapter>>
+
+    //获取公众号下的文章
+    @GET("wxarticle/list/{id}/{page}/json")
+    suspend fun getProjectList(@Path("id") id: Int,@Path("page") page: Int) : ApiResult<Pagination<Project>>
 }

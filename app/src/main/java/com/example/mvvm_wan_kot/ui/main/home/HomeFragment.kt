@@ -6,15 +6,16 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.base.BaseFragment
 import com.example.mvvm_wan_kot.ui.main.home.popular.PopularFragment
+import com.example.mvvm_wan_kot.ui.main.home.project.ProjectFragment
 import com.example.mvvm_wan_kot.ui.main.home.square.SquareFragment
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {
 
 //    private var tabTitles: List<String> = listOf("置顶", "文章", "广场", "项目", "公众号")
-    private var tabTitles: List<String> = listOf("置顶", "广场")
+    private var tabTitles: List<String> = listOf("置顶", "广场","公众号")
     private val fragments by lazy {
-        mutableListOf(PopularFragment(),SquareFragment())
+        mutableListOf(PopularFragment(),SquareFragment(),ProjectFragment())
     }
 
     override fun getLayoutResId() = R.layout.fragment_home

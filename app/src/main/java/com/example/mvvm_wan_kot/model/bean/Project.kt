@@ -1,6 +1,6 @@
 package com.example.mvvm_wan_kot.model.bean
 
-data class Article(
+data class Project(
     val apkLink: String,
     val audit: Int,
     val author: String,
@@ -18,7 +18,6 @@ data class Article(
     val niceDate: String,
     val niceShareDate: String,
     val origin: String,
-    val originId :Int,
     val prefix: String,
     val projectLink: String,
     val publishTime: Long,
@@ -36,7 +35,3 @@ data class Article(
     val zan: Int
 )
 
-data class Tag(
-    val name: String,
-    val url: String
-)

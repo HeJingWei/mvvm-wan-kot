@@ -26,6 +26,7 @@ class App : Application() {
         registerActivityCallbacks()
         LoadMoreModuleConfig.defLoadMoreView = CommonLoadMoreView()
 
+
         startKoin {
             androidLogger(Level.INFO)
             androidContext(this@App)

@@ -40,7 +40,7 @@
     <string name="confirm">确认</string>
     <string name="cancel">取消</string>
     <string name="refresh_success">刷新成功</string>
-
+    <string name="empty_hint">没有任何数据~</string>
     <string name="collect_cancel">取消收藏</string>
     <string name="collect_title">我的收藏</string>
 

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+        <variable
+            name="chapter"
+            type="com.example.mvvm_wan_kot.model.bean.ProjectChapter" />
+    </data>
+    <CheckedTextView
+        android:id="@+id/ctvCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/selector_bg_category_item"
+        android:checked="false"
+        android:textColor="@color/selector_color_category_item"
+        android:textSize="13sp"
+        android:text="@{chapter.name}"
+        />
+</layout>
