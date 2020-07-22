@@ -1,4 +1,4 @@
-# 使用mvvm+kotlin+jetpack搭建一个wanandroid客户端
-
+# read
+使用mvvm+kotlin+jetpack搭建一个wanandroid客户端
 
 
