@@ -26,10 +26,12 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
                 val link = squareAdapter.data[position].link
                 this@SquareFragment.activity?.showToast(link)
             }
-            setOnItemClickListener { adapter, view, position ->
+            setOnItemClickListener { _, view, position ->
                 when (view.id) {
                     R.id.collect -> {
-
+                        mViewModel.collect(data[position].collect, data[position].id)
+                        data[position].collect = !data[position].collect
+                        notifyItemChanged(position)
                     }
                 }
             }

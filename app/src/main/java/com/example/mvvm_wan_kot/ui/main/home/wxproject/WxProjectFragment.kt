@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.ext.showToast
+import com.example.mvvm_wan_kot.common.ext.toIntPx
 import com.example.mvvm_wan_kot.common.view.SpaceItemDecoration
 import com.example.mvvm_wan_kot.ui.main.adapter.CategoryAdapter
 import com.example.mvvm_wan_kot.ui.main.adapter.HomeWxProjectAdapter
@@ -51,6 +52,7 @@ class WxProjectFragment : BaseVMFragment<WxProjectViewModel>() {
             setEmptyView(R.layout.adapter_empty_view)
         }
         projectRecyclerView.addItemDecoration(SpaceItemDecoration(0,0,20,0))
+        projectCategoryRecyclerView.addItemDecoration(SpaceItemDecoration(0,0,0,8.toIntPx()))
         categoryAdapter.setOnItemClickListener { _, _, position ->
             val id = categoryAdapter.data[position].id
             if (id != mViewModel.chapterId){

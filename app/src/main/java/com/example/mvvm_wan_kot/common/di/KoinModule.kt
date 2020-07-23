@@ -9,6 +9,8 @@ import com.example.mvvm_wan_kot.ui.login.LoginRepository
 import com.example.mvvm_wan_kot.ui.login.LoginViewModel
 import com.example.mvvm_wan_kot.ui.login.register.RegisterRepository
 import com.example.mvvm_wan_kot.ui.login.register.RegisterViewModel
+import com.example.mvvm_wan_kot.ui.main.home.article.ArticleRepository
+import com.example.mvvm_wan_kot.ui.main.home.article.ArticleViewModel
 import com.example.mvvm_wan_kot.ui.main.home.popular.PopularRepository
 import com.example.mvvm_wan_kot.ui.main.home.popular.PopularViewModel
 import com.example.mvvm_wan_kot.ui.main.home.project.ProjectRepository
@@ -70,6 +72,9 @@ val viewModelModule = module {
     viewModel {
         ProjectViewModel(get())
     }
+    viewModel {
+        ArticleViewModel(get(),get())
+    }
 }
 
 val repositoryModule = module {
@@ -111,6 +116,9 @@ val repositoryModule = module {
     }
     single {
         ProjectRepository()
+    }
+    single {
+        ArticleRepository()
     }
 }
 

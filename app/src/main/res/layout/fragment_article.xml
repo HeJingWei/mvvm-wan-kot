@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="vm"
+            type="com.example.mvvm_wan_kot.ui.main.home.article.ArticleViewModel" />
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:layout_width="match_parent"
+        android:id="@+id/homeArticleRefresh"
+        onRefresh="@{vm.refreshData}"
+        isRefresh="@{vm.uiState.showLoading}"
+        android:layout_height="match_parent">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/homeArticleRecyclerView"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            adapter="@{adapter}"/>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+</layout>
