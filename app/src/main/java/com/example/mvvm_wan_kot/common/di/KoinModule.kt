@@ -15,6 +15,8 @@ import com.example.mvvm_wan_kot.ui.main.home.project.ProjectRepository
 import com.example.mvvm_wan_kot.ui.main.home.project.ProjectViewModel
 import com.example.mvvm_wan_kot.ui.main.home.square.SquareRepository
 import com.example.mvvm_wan_kot.ui.main.home.square.SquareViewModel
+import com.example.mvvm_wan_kot.ui.main.home.wxproject.WxProjectRepository
+import com.example.mvvm_wan_kot.ui.main.home.wxproject.WxProjectViewModel
 import com.example.mvvm_wan_kot.ui.main.mine.MineRepository
 import com.example.mvvm_wan_kot.ui.main.mine.MineViewModel
 import com.example.mvvm_wan_kot.ui.main.navigation.NavigationRepository
@@ -63,7 +65,10 @@ val viewModelModule = module {
         CollectViewModel(get(),get())
     }
     viewModel {
-        ProjectViewModel(get(),get())
+        WxProjectViewModel(get(),get())
+    }
+    viewModel {
+        ProjectViewModel(get())
     }
 }
 
@@ -100,6 +105,9 @@ val repositoryModule = module {
     }
     single {
         CollectRepository()
+    }
+    single {
+        WxProjectRepository()
     }
     single {
         ProjectRepository()

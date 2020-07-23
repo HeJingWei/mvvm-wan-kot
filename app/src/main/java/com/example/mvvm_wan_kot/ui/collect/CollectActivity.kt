@@ -21,6 +21,8 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
 
     private val collectAdapter by lazy { CollectAdapter() }
 
+    var pos = -1
+
     override fun initView() {
         mBinding.run {
             setVariable(BR.vm, mViewModel)
@@ -40,10 +42,7 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
             setOnItemChildClickListener { _, view, position ->
                 if (view.id == R.id.collectCancel) {
                     mViewModel.collectCancel(collectAdapter.data[position].originId)
-                    collectAdapter.run {
-                        data.removeAt(position)
-                        notifyDataSetChanged()
-                    }
+                    pos = position
                 }
             }
             loadMoreModule.isEnableLoadMore = true
@@ -71,6 +70,10 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
                 if (it.showEnd) collectAdapter.loadMoreModule.loadMoreEnd()
                 it.cancelSuccess?.let { toastStr ->
                     showToast(toastStr)
+                    collectAdapter.run {
+                        data.removeAt(pos)
+                        notifyDataSetChanged()
+                    }
                 }
             })
         }

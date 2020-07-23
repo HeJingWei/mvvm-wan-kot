@@ -73,4 +73,12 @@ interface ApiService {
     //获取公众号下的文章
     @GET("wxarticle/list/{id}/{page}/json")
     suspend fun getProjectList(@Path("id") id: Int,@Path("page") page: Int) : ApiResult<Pagination<Project>>
+
+    //获取项目分类
+    @GET("project/tree/json")
+    suspend fun getProjectTree() : ApiResult<List<ProjectChapter>>
+
+    //根据分类获取项目列表
+    @GET("project/list/{page}/json")
+    suspend fun getProjectByAuthor(@Path("page") page:Int,@Query("cid")cid:Int) : ApiResult<Pagination<Article>>
 }

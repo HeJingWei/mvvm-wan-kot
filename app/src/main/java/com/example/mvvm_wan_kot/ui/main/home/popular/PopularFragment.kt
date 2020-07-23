@@ -35,6 +35,7 @@ class PopularFragment : BaseVMFragment<PopularViewModel>() {
                 this@PopularFragment.activity?.showToast(link)
             }
             loadMoreModule.isEnableLoadMore = false
+            setEmptyView(R.layout.adapter_empty_view)
             addHeaderView(banner)
             setOnItemChildClickListener { _, view, position ->
                 if (view.id == R.id.collect) {

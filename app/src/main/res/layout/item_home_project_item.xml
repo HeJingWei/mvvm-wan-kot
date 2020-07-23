@@ -3,39 +3,66 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
         <variable
-            name="project"
-            type="com.example.mvvm_wan_kot.model.bean.Project" />
+            name="article"
+            type="com.example.mvvm_wan_kot.model.bean.Article" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:background="@color/white"
-        android:padding="14dp"
+        android:padding="15dp"
         android:layout_height="wrap_content">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/homeProjectTitle"
-            htmlToSpanned="@{project.title}"
-            android:textSize="14sp"
-            android:textColor="@color/textColorPrimary"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/homeProjectDate"
-            android:text="@{project.niceDate}"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            android:textSize="12sp"
-            android:textColor="@color/textColorSecondary"/>
         <ImageView
-            android:layout_width="28dp"
-            android:layout_height="28dp"
-            android:src="@mipmap/collect_icon"
+            android:layout_width="60dp"
+            android:layout_height="120dp"
+            android:id="@+id/projectCover"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            />
+        <TextView
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            htmlToSpanned="@{article.title}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/projectCover"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/homeProjectTitle"
-            android:id="@+id/homeProjectCollect"
-            android:layout_marginTop="10dp"/>
+            android:id="@+id/projectTitle"
+            android:layout_marginStart="12dp"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="14sp"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/projectDate"
+            android:text="@{article.niceDate}"
+            android:textSize="12sp"
+            android:textColor="@color/textColorSecondary"
+            app:layout_constraintLeft_toLeftOf="@+id/projectTitle"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/projectDesc"/>
+        <TextView
+            android:layout_width="0dp"
+            app:layout_constraintHorizontal_weight="1"
+            android:layout_height="wrap_content"
+            android:textSize="12sp"
+            android:textColor="@color/textColorSecondary"
+            htmlToSpanned="@{article.desc}"
+            android:id="@+id/projectDesc"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/projectTitle"
+            app:layout_constraintTop_toBottomOf="@+id/projectTitle"
+            android:layout_marginTop="10dp"
+            android:gravity="start"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/projectAuthor"
+            android:textSize="12sp"
+            android:textColor="@color/textColorSecondary"
+            app:layout_constraintLeft_toLeftOf="@+id/projectTitle"
+            app:layout_constraintTop_toBottomOf="@+id/projectDate"
+            android:layout_marginTop="10dp"
+            android:text='@{"作者："+article.author}'/>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

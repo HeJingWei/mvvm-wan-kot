@@ -6,21 +6,13 @@ import androidx.databinding.library.baseAdapters.BR
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.adapter.BaseBindAdapter
-import com.example.mvvm_wan_kot.model.bean.Project
+import com.example.mvvm_wan_kot.common.utils.loadImage
+import com.example.mvvm_wan_kot.model.bean.Article
 
-class HomeProjectAdapter (layoutResId: Int =R.layout.item_home_project_item) :
-BaseBindAdapter<Project>(layoutResId, BR.project){
-    init {
-        addChildClickViewIds(R.id.homeProjectCollect)
-    }
-    override fun convert(holder: BaseDataBindingHolder<ViewDataBinding>, item: Project) {
+class HomeProjectAdapter(layout: Int = R.layout.item_home_project_item) :
+    BaseBindAdapter<Article>(layout, BR.article) {
+    override fun convert(holder: BaseDataBindingHolder<ViewDataBinding>, item: Article) {
         super.convert(holder, item)
-        val view = holder.getView<ImageView>(R.id.homeProjectCollect)
-
-        view.setColorFilter(
-            if (item.collect) context.getColor(R.color.main_select_color) else context.getColor(
-                R.color.main_unselect_color
-            )
-        )
+        holder.getView<ImageView>(R.id.projectCover).loadImage(item.envelopePic)
     }
 }

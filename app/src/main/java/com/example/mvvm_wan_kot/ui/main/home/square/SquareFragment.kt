@@ -36,6 +36,7 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
             loadMoreModule.setOnLoadMoreListener {
                 loadMore()
             }
+            setEmptyView(R.layout.adapter_empty_view)
         }
     }
 

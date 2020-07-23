@@ -34,8 +34,7 @@ class SquareViewModel constructor(
             )
         }, error = {
             emitArticleUiState(
-                showDialogLoading = false,
-                collectToast = App.instance.getString(R.string.operate_fail)
+                showDialogLoading = false
             )
         })
     }

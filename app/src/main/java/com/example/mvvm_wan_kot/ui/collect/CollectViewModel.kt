@@ -28,7 +28,7 @@ class CollectViewModel(
             collectCancelRepository.collectCancel(id)
             emitCollectUiState(cancelSuccess = App.instance.getString(R.string.operate_success),showLoadingDialog = false)
         }, error = {
-            emitCollectUiState(cancelSuccess = App.instance.getString(R.string.operate_fail),showLoadingDialog = false)
+            emitCollectUiState(showLoadingDialog = false)
         }
         )
     }

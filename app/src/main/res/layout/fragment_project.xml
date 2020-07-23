@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:binding="http://schemas.android.com/tools">
-    <data >
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
         <variable
             name="vm"
             type="com.example.mvvm_wan_kot.ui.main.home.project.ProjectViewModel" />
@@ -13,32 +12,29 @@
             name="h_adapter"
             type="androidx.recyclerview.widget.RecyclerView.Adapter" />
     </data>
-    <LinearLayout
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:id="@+id/homeProjectRefresh"
+        onRefresh="@{vm.refreshData}"
+        isRefresh="@{vm.uiState.showLoading}"
         android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:id="@+id/projectCategoryRecyclerView"
-            android:background="@color/white"
-            adapter="@{h_adapter}"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             android:orientation="horizontal"
-            android:padding="10dp"
-        />
-        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-            android:layout_width="match_parent"
-            binding:onRefresh="@{vm.refreshData}"
-            binding:isRefresh="@{vm.uiState.showLoading}"
+            android:background="@color/white"
             android:layout_height="match_parent">
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                adapter="@{h_adapter}"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                android:id="@+id/homeProjectTreeRecyclerView"/>
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
                 adapter="@{adapter}"
-                android:id="@+id/projectRecyclerView"
-                />
-        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
-    </LinearLayout>
+                android:id="@+id/homeProjectRecyclerView"/>
+        </LinearLayout>
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 </layout>
