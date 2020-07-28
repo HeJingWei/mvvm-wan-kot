@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.ext.showToast
+import com.example.mvvm_wan_kot.ui.common.WebViewActivity
 import com.example.mvvm_wan_kot.ui.main.adapter.HomeSquareAdapter
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -22,11 +23,11 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
         }
 
         squareAdapter.run {
-            setOnItemClickListener { adapter, view, position ->
+            setOnItemClickListener { _, _, position ->
                 val link = squareAdapter.data[position].link
-                this@SquareFragment.activity?.showToast(link)
+                WebViewActivity.goDetailActivity(link)
             }
-            setOnItemClickListener { _, view, position ->
+            setOnItemChildClickListener { _, view, position ->
                 when (view.id) {
                     R.id.collect -> {
                         mViewModel.collect(data[position].collect, data[position].id)

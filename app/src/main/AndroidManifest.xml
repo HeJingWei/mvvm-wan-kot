@@ -58,6 +58,8 @@
         <activity
             android:name=".ui.main.system.SystemListActivity"
             android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation" />
+        <activity android:name=".ui.common.WebViewActivity"
+            android:configChanges="keyboard|keyboardHidden|screenSize|fontScale|density|orientation" />
     </application>
 
 </manifest>

@@ -53,6 +53,7 @@ dependencies {
     implementation Deps.baseRecyclerViewAdapterHelper
     implementation Deps.banner
     implementation Deps.glide
+    implementation files('libs\\tbs_sdk_thirdapp.jar')
     kapt Deps.glide_compiler
     implementation Deps.cardView
     implementation Deps.flowLayout

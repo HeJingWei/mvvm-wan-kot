@@ -10,6 +10,7 @@ import com.example.mvvm_wan_kot.common.custom.GlideImageLoader
 import com.example.mvvm_wan_kot.common.ext.showToast
 import com.example.mvvm_wan_kot.common.ext.toIntPx
 import com.example.mvvm_wan_kot.model.bean.Banner
+import com.example.mvvm_wan_kot.ui.common.WebViewActivity
 import com.example.mvvm_wan_kot.ui.main.adapter.HomePopularAdapter
 import com.youth.banner.BannerConfig
 import org.koin.androidx.viewmodel.ext.android.getViewModel
@@ -32,7 +33,7 @@ class PopularFragment : BaseVMFragment<PopularViewModel>() {
         homePopularAdapter.run {
             setOnItemClickListener { _, _, position ->
                 val link = homePopularAdapter.data[position].link
-                this@PopularFragment.activity?.showToast(link)
+                WebViewActivity.goDetailActivity(link)
             }
             loadMoreModule.isEnableLoadMore = false
             setEmptyView(R.layout.adapter_empty_view)
