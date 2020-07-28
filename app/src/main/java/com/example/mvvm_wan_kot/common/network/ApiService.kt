@@ -68,17 +68,38 @@ interface ApiService {
 
     //获取公众号列表
     @GET("wxarticle/chapters/json")
-    suspend fun getProjectChapters() : ApiResult<List<ProjectChapter>>
+    suspend fun getProjectChapters(): ApiResult<List<ProjectChapter>>
 
     //获取公众号下的文章
     @GET("wxarticle/list/{id}/{page}/json")
-    suspend fun getProjectList(@Path("id") id: Int,@Path("page") page: Int) : ApiResult<Pagination<Project>>
+    suspend fun getProjectList(
+        @Path("id") id: Int,
+        @Path("page") page: Int
+    ): ApiResult<Pagination<Project>>
 
     //获取项目分类
     @GET("project/tree/json")
-    suspend fun getProjectTree() : ApiResult<List<ProjectChapter>>
+    suspend fun getProjectTree(): ApiResult<List<ProjectChapter>>
 
     //根据分类获取项目列表
     @GET("project/list/{page}/json")
-    suspend fun getProjectByAuthor(@Path("page") page:Int,@Query("cid")cid:Int) : ApiResult<Pagination<Article>>
+    suspend fun getProjectByAuthor(
+        @Path("page") page: Int,
+        @Query("cid") cid: Int
+    ): ApiResult<Pagination<Article>>
+
+    //获取导航数据
+    @GET("navi/json")
+    suspend fun getNavigation(): ApiResult<List<Navigation>>
+
+    //获取体系数据
+    @GET("tree/json")
+    suspend fun getSysTree(): ApiResult<List<SystemBean>>
+
+    //体系下的文章
+    @GET("article/list/{page}/json")
+    suspend fun getSystemList(
+        @Path("page") page: Int,
+        @Query("cid") cid: Int
+    ): ApiResult<Pagination<Article>>
 }

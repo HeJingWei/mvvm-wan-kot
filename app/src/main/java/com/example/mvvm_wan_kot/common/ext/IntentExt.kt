@@ -3,6 +3,7 @@ package com.example.mvvm_wan_kot.common.ext
 import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
+import java.io.Serializable
 
 @Suppress("UNCHECKED_CAST")
 fun Intent.putExtras(vararg extras: Pair<String, Any>) {
@@ -29,6 +30,7 @@ fun Intent.putExtras(vararg extras: Pair<String, Any>) {
             is BooleanArray -> putExtra(key, value)
             is CharSequence -> putExtra(key, value)
             is Parcelable -> putExtra(key, value)
+            is Serializable -> putExtra(key, value)
             is Array<*> -> {
                 when {
                     value.isArrayOf<String>() ->

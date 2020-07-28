@@ -1,14 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
     <data>
+
         <variable
             name="vm"
             type="com.example.mvvm_wan_kot.ui.main.navigation.NavigationViewModel" />
-    </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <variable
+            name="adapter"
+            type="androidx.recyclerview.widget.RecyclerView.Adapter" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/navigationTitle"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:background="@color/bgColorPrimary"
+            android:gravity="center"
+            android:text="@string/navigation_title"
+            android:textColor="@color/textColorPrimary"
+            android:textSize="15sp" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grayDark"/>
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/navigationRefreshLayout"
+            isRefresh="@{vm.uiState.showLoading}"
+            onRefresh="@{vm.refreshNavigation}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/navigationRecyclerView"
+                    adapter="@{adapter}"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/bgColorSecondary"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager" />
+
+                <TextView
+                    android:id="@+id/navigationFloatTitle"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/bgColorPrimary"
+                    android:fontFamily="sans-serif-medium"
+                    android:paddingStart="16dp"
+                    android:paddingTop="16dp"
+                    android:paddingBottom="16dp"
+                    android:textColor="@color/textColorSecondary"
+                    android:visibility="gone" />
+            </FrameLayout>
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </LinearLayout>
 </layout>

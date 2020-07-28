@@ -22,7 +22,6 @@ class App : Application() {
     override fun onCreate() {
         super.onCreate()
         instance = this
-        Timer.start("app start")
         registerActivityCallbacks()
         LoadMoreModuleConfig.defLoadMoreView = CommonLoadMoreView()
 

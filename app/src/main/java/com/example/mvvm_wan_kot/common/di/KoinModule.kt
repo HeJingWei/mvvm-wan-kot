@@ -43,7 +43,7 @@ val viewModelModule = module {
         NavigationViewModel(get())
     }
     viewModel {
-        SystemViewModel(get())
+        SystemViewModel(get(),get())
     }
     viewModel {
         PopularViewModel(get(),get())
