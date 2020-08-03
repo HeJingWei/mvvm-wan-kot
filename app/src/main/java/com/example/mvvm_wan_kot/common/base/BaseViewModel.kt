@@ -1,6 +1,5 @@
 package com.example.mvvm_wan_kot.common.base
 
-import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.mvvm_wan_kot.R
@@ -44,6 +43,25 @@ open class BaseViewModel : ViewModel(){
     suspend fun <T> launchOnIO(block: suspend CoroutineScope.() -> T) {
         withContext(Dispatchers.IO) {
             block
+        }
+    }
+
+    /**
+     * 创建并执行协程
+     * @param block 协程中执行
+     * @return Deferred<T>
+     */
+    protected fun <T> async(block: Block<T>): Deferred<T> {
+        return viewModelScope.async { block.invoke() }
+    }
+
+    /**
+     * 取消协程
+     * @param job 协程job
+     */
+    protected fun cancelJob(job: Job?) {
+        if (job != null && job.isActive && !job.isCompleted && !job.isCancelled) {
+            job.cancel()
         }
     }
 

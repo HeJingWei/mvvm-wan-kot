@@ -60,7 +60,7 @@ dependencies {
     implementation Deps.persistentCookieJar
     implementation Deps.livedata_ktx
     implementation Deps.viewPager2
-    implementation Deps.lifecycle_extension
+
     implementation Deps.viewmodel_ktx
     implementation Deps.coroutines_android
     implementation Deps.core_ktx
@@ -74,6 +74,10 @@ dependencies {
     implementation Deps.glideTransformations
     implementation Deps.loading_helper
     implementation Deps.l_dialog
+
+    implementation Deps.room
+    implementation Deps.room_ktx
+    kapt Deps.room_compiler
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

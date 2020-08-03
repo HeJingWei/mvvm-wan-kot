@@ -102,4 +102,17 @@ interface ApiService {
         @Path("page") page: Int,
         @Query("cid") cid: Int
     ): ApiResult<Pagination<Article>>
+
+    //获取搜索热词
+    @GET("hotkey/json")
+    suspend fun getHotKey():
+            ApiResult<List<HotKey>>
+
+    //搜索 注意：支持多个关键词，用空格隔开
+    @FormUrlEncoded
+    @POST("article/query/{page}/json")
+    suspend fun queryArticleListByKey(
+        @Path("page") page: Int,
+        @Field("k") key: String
+    ): ApiResult<Pagination<Article>>
 }

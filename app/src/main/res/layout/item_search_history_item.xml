@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android" >
+    <data>
+        <variable
+            name="key"
+            type="com.example.mvvm_wan_kot.model.bean.HotKey" />
+    </data>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:paddingLeft="12dp"
+        android:paddingRight="12dp"
+        android:paddingTop="12dp"
+        android:background="@color/white"
+        android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:layout_toLeftOf="@+id/searchHistoryDelete"
+            android:gravity="bottom|start"
+            android:text="@{key.name}"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:id="@+id/searchHistoryName"
+            android:textSize="12sp"
+            android:textColor="@color/textColorPrimary"/>
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:src="@mipmap/delete"
+            android:id="@+id/searchHistoryDelete"
+            android:layout_alignParentRight="true"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/grayDark"
+            android:layout_below="@+id/searchHistoryName"
+            android:layout_marginTop="12dp"/>
+    </RelativeLayout>
+</layout>

@@ -25,6 +25,8 @@ import com.example.mvvm_wan_kot.ui.main.navigation.NavigationRepository
 import com.example.mvvm_wan_kot.ui.main.navigation.NavigationViewModel
 import com.example.mvvm_wan_kot.ui.main.system.SystemRepository
 import com.example.mvvm_wan_kot.ui.main.system.SystemViewModel
+import com.example.mvvm_wan_kot.ui.search.SearchRepository
+import com.example.mvvm_wan_kot.ui.search.SearchViewModel
 import com.example.mvvm_wan_kot.ui.setting.SettingRepository
 import com.example.mvvm_wan_kot.ui.setting.SettingViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -75,6 +77,9 @@ val viewModelModule = module {
     viewModel {
         ArticleViewModel(get(),get())
     }
+    viewModel {
+        SearchViewModel(get())
+    }
 }
 
 val repositoryModule = module {
@@ -119,6 +124,9 @@ val repositoryModule = module {
     }
     single {
         ArticleRepository()
+    }
+    single {
+        SearchRepository()
     }
 }
 

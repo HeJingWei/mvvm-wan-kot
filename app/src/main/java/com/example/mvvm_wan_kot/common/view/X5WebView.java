@@ -50,8 +50,8 @@ public class X5WebView extends WebView {
 		webSetting.setPluginState(WebSettings.PluginState.ON_DEMAND);
 		// webSetting.setRenderPriority(WebSettings.RenderPriority.HIGH);
 		webSetting.setCacheMode(WebSettings.LOAD_NO_CACHE);
-		getX5WebViewExtension().setHorizontalScrollBarEnabled(false);//水平不显示滚动按钮
-		getX5WebViewExtension().setVerticalScrollBarEnabled(false); //垂直不显示滚动按钮
+//		getX5WebViewExtension().setHorizontalScrollBarEnabled(false);//水平不显示滚动按钮
+//		getX5WebViewExtension().setVerticalScrollBarEnabled(false); //垂直不显示滚动按钮
 		// this.getSettingsExtension().setPageCacheCapacity(IX5WebSettings.DEFAULT_CACHE_CAPACITY);//extension
 		// settings 的设计
 	}

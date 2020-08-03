@@ -5,11 +5,13 @@ import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.base.BaseFragment
+import com.example.mvvm_wan_kot.common.utils.ActivityManager
 import com.example.mvvm_wan_kot.ui.main.home.article.ArticleFragment
 import com.example.mvvm_wan_kot.ui.main.home.popular.PopularFragment
 import com.example.mvvm_wan_kot.ui.main.home.project.ProjectFragment
 import com.example.mvvm_wan_kot.ui.main.home.square.SquareFragment
 import com.example.mvvm_wan_kot.ui.main.home.wxproject.WxProjectFragment
+import com.example.mvvm_wan_kot.ui.search.SearchActivity
 import kotlinx.android.synthetic.main.fragment_home.*
 
 class HomeFragment : BaseFragment() {
@@ -27,6 +29,7 @@ class HomeFragment : BaseFragment() {
         homeTabLayout.setupWithViewPager(viewPager)
         homeSearch.setOnClickListener {
             //跳转搜索页
+            ActivityManager.start(SearchActivity::class.java)
         }
     }
 

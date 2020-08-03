@@ -16,7 +16,7 @@ import java.util.concurrent.TimeUnit
  */
 object RetrofitClient {
 
-    val service by lazy { getService(ApiService::class.java, ApiService.BASE_URL) }
+    val service by lazy { getService(ApiService::class.java) }
 
     private val cookieJar by lazy { PersistentCookieJar(SetCookieCache(), SharedPrefsCookiePersistor(App.instance)) }
 
@@ -37,11 +37,11 @@ object RetrofitClient {
         return builder.build()
     }
 
-    fun <S> getService(serviceClass: Class<S>, baseUrl: String): S {
+    private fun <S> getService(serviceClass: Class<S>): S {
         return Retrofit.Builder()
             .client(client)
             .addConverterFactory(GsonConverterFactory.create())
-            .baseUrl(baseUrl)
+            .baseUrl(ApiService.BASE_URL)
             .build().create(serviceClass)
     }
 
