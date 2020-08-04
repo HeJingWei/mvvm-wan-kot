@@ -1,6 +1,8 @@
 # 正在开发中。。
 使用mvvm+kotlin+jetpack搭建一个wanandroid客户端
 
+jetpack组件：viewmodel、databinding、lifecycle、room、livedata
+
 已完成：
 
 1.框架搭建
@@ -24,6 +26,9 @@
   2.8主页体系树
   
   2.9知识体系下的列表
+  
+  2.10搜索页面
+  
   
 3.我的：
 
