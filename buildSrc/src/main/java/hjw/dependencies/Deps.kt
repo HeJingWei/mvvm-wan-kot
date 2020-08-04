@@ -42,6 +42,7 @@ object Versions {
     const val loading_helper = "2.1.0"
     const val l_dialog = "V1.0.4"
     const val room = "2.2.5"
+    const val auto_size = "1.2.1"
 }
 
 object Deps {
@@ -66,6 +67,7 @@ object Deps {
 //    @Deprecated("lifecycle-extensions 已弃用,不要使用 ViewModelProviders.of 的方式")
 //    const val lifecycle_extension = "androidx.lifecycle:lifecycle-extensions:${Versions.lifecycle_extension}"
     const val cardView = "androidx.cardview:cardview:${Versions.cardView}"
+    //room
     const val room = "androidx.room:room-runtime:${Versions.room}"
     const val room_compiler = "androidx.room:room-compiler:${Versions.room}"
     const val room_ktx = "androidx.room:room-ktx:${Versions.room}"
@@ -96,5 +98,6 @@ object Deps {
     const val koin_androidx_viewmodel = "org.koin:koin-androidx-viewmodel:${Versions.koin}"
     const val loading_helper = "com.dylanc:loadinghelper:${Versions.loading_helper}"
     const val l_dialog = "com.github.liys666666:LDialog:${Versions.l_dialog}"
+    const val auto_size = "me.jessyan:autosize:${Versions.auto_size}"
 
 }

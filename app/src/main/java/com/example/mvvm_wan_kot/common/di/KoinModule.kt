@@ -3,6 +3,10 @@ package com.example.mvvm_wan_kot.common.di
 import com.example.mvvm_wan_kot.ui.collect.CollectRepository
 import com.example.mvvm_wan_kot.ui.collect.CollectViewModel
 import com.example.mvvm_wan_kot.ui.common.CollectOperateRepository
+import com.example.mvvm_wan_kot.ui.common.webview.WebViewRepository
+import com.example.mvvm_wan_kot.ui.common.webview.WebViewViewModel
+import com.example.mvvm_wan_kot.ui.history.HistoryRepository
+import com.example.mvvm_wan_kot.ui.history.HistoryViewModel
 import com.example.mvvm_wan_kot.ui.integral.IntegralRepository
 import com.example.mvvm_wan_kot.ui.integral.IntegralViewModel
 import com.example.mvvm_wan_kot.ui.login.LoginRepository
@@ -31,11 +35,6 @@ import com.example.mvvm_wan_kot.ui.setting.SettingRepository
 import com.example.mvvm_wan_kot.ui.setting.SettingViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
-
-/**
- * Created by luyao
- * on 2019/11/15 15:44
- */
 
 val viewModelModule = module {
     viewModel {
@@ -79,6 +78,12 @@ val viewModelModule = module {
     }
     viewModel {
         SearchViewModel(get())
+    }
+    viewModel {
+        HistoryViewModel(get())
+    }
+    viewModel {
+        WebViewViewModel(get())
     }
 }
 
@@ -127,6 +132,12 @@ val repositoryModule = module {
     }
     single {
         SearchRepository()
+    }
+    single {
+        HistoryRepository()
+    }
+    single {
+        WebViewRepository()
     }
 }
 

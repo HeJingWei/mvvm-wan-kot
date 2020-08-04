@@ -8,57 +8,59 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName = "tb_article")//定义表名
+//entity声明定义，并且指定了映射数据表名
+@Entity(tableName = "tb_article")
 data class Article(
+    //设置主键，并且定义自增增
     @PrimaryKey(autoGenerate = true)
     var primaryKeyId: Int = 0,
-    val apkLink: String,
-    val audit: Int,
-    val author: String,
-    val canEdit: Boolean,
+    var apkLink: String? = "",
+    var audit: Int = 0,
+    var author: String? = "",
+    var canEdit: Boolean = false,
     @ColumnInfo(name = "chapter_id")//定义数据表中的字段名
-    val chapterId: Int,
+    var chapterId: Int = 0,
     @ColumnInfo(name = "chapter_name")
-    val chapterName: String,
-    var collect: Boolean,
-    val courseId: Int,
-    val desc: String,
-    val descMd: String,
+    var chapterName: String? = "",
+    var collect: Boolean = false,
+    var courseId: Int = 0,
+    var desc: String? = "",
+    var descMd: String? = "",
     @ColumnInfo(name = "envelope_pic")
-    val envelopePic: String,
-    val fresh: Boolean,
-    val id: Int,
-    val link: String,
+    var envelopePic: String? = "",
+    var fresh: Boolean = false,
+    var id: Int = 0,
+    var link: String? = "",
     @ColumnInfo(name = "nice_date")
-    val niceDate: String,
+    var niceDate: String? = "",
     @ColumnInfo(name = "nice_share_date")
-    val niceShareDate: String,
-    val origin: String,
+    var niceShareDate: String? = "",
+    var origin: String? = "",
     @ColumnInfo(name = "origin_id")
-    val originId :Int,
-    val prefix: String,
+    var originId: Int = 0,
+    var prefix: String? = "",
     @ColumnInfo(name = "project_link")
-    val projectLink: String,
+    var projectLink: String? = "",
     @ColumnInfo(name = "publish_time")
-    val publishTime: Long,
+    var publishTime: Long = 0,
     @ColumnInfo(name = "real_super_chapter_id")
-    val realSuperChapterId: Int,
+    var realSuperChapterId: Int = 0,
     @ColumnInfo(name = "self_visible")
-    val selfVisible: Int,
+    var selfVisible: Int = 0,
     @ColumnInfo(name = "share_date")
-    val shareDate: Long,
+    var shareDate: Long = 0,
     @ColumnInfo(name = "share_user")
-    val shareUser: String,
+    var shareUser: String? = "",
     @ColumnInfo(name = "super_chapter_id")
-    val superChapterId: Int,
+    var superChapterId: Int = 0,
     @ColumnInfo(name = "super_chapter_name")
-    val superChapterName: String,
+    var superChapterName: String? = "",
     @Ignore//指示Room需要忽略的字段或方法
     var tags: List<Tag> = emptyList(),
-    val title: String,
-    val type: Int,
+    var title: String? = "",
+    var type: Int = 0,
     @ColumnInfo(name = "user_id")
-    val userId: Int,
-    val visible: Int,
-    val zan: Int
+    var userId: Int = 0,
+    var visible: Int = 0,
+    var zan: Int = 0
 ) : Parcelable

@@ -11,9 +11,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-/**
- * Created by xiaojianjun on 2019-09-18.
- */
 object RetrofitClient {
 
     val service by lazy { getService(ApiService::class.java) }

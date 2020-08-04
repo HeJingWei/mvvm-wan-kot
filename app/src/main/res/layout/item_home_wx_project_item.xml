@@ -4,7 +4,7 @@
     <data>
         <variable
             name="project"
-            type="com.example.mvvm_wan_kot.model.bean.Project" />
+            type="com.example.mvvm_wan_kot.model.bean.Article" />
     </data>
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"

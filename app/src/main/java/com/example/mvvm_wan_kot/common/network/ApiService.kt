@@ -75,7 +75,7 @@ interface ApiService {
     suspend fun getProjectList(
         @Path("id") id: Int,
         @Path("page") page: Int
-    ): ApiResult<Pagination<Project>>
+    ): ApiResult<Pagination<Article>>
 
     //获取项目分类
     @GET("project/tree/json")

@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.App
 import com.example.mvvm_wan_kot.common.base.BaseViewModel
-import com.example.mvvm_wan_kot.model.bean.Project
+import com.example.mvvm_wan_kot.model.bean.Article
 import com.example.mvvm_wan_kot.model.bean.ProjectChapter
 import com.example.mvvm_wan_kot.ui.common.CollectOperateRepository
 
@@ -70,7 +70,7 @@ class WxProjectViewModel(
         isRefresh: Boolean = false,
         showLoading: Boolean = false,
         showEnd: Boolean = false,
-        projectList: List<Project>? = null,
+        projectList: List<Article>? = null,
         projectChapters: List<ProjectChapter>? = null
     ) {
         _uiState.value = ProjectUiModel(
@@ -90,7 +90,7 @@ class WxProjectViewModel(
         val isRefresh: Boolean,
         val showLoading: Boolean,
         val showEnd: Boolean,
-        var projectList: List<Project>?,
+        var projectList: List<Article>?,
         var projectChapters: List<ProjectChapter>?
     )
 }

@@ -1,41 +1,45 @@
-package com.example.mvvm_wan_kot.ui.common
+package com.example.mvvm_wan_kot.ui.common.webview
 
 import android.graphics.Bitmap
 import android.view.View
-
+import androidx.databinding.library.baseAdapters.BR
 import com.example.mvvm_wan_kot.R
-import com.example.mvvm_wan_kot.common.base.BaseActivity
+import com.example.mvvm_wan_kot.common.base.BaseVMActivity
 import com.example.mvvm_wan_kot.common.utils.ActivityManager
+import com.example.mvvm_wan_kot.model.bean.Article
 import com.tencent.smtt.sdk.WebChromeClient
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebViewClient
 import kotlinx.android.synthetic.main.activity_web_detail.*
 import kotlinx.android.synthetic.main.layout_toolbar.*
+import org.koin.androidx.viewmodel.ext.android.getViewModel
 
-class WebViewActivity : BaseActivity() {
+class WebViewActivity : BaseVMActivity<WebViewViewModel>() {
     override fun getLayoutResId() = R.layout.activity_web_detail
 
-
     companion object {
-        const val URL = "url"
-        fun goDetailActivity(link: String) {
-            val map = HashMap<String, String>()
-            map[URL] = link
+        const val ARTICLE = "article"
+        fun goDetailActivity(article: Article) {
+            val map = HashMap<String, Any>()
+            map[ARTICLE] = article
             ActivityManager.start(WebViewActivity::class.java, map)
         }
     }
 
     override fun initView() {
+        mBinding.setVariable(BR.vm, mViewModel)
+
         toolbar.run {
             setTitle(R.string.loading)
             setNavigationOnClickListener { onBackPressed() }
         }
-        intent?.extras?.getString(URL)?.let {
-            webView.loadUrl(it)
-        }
     }
 
     override fun initData() {
+        intent?.extras?.getParcelable<Article>(ARTICLE)?.let {
+            mViewModel.addReadHistory(it)
+            webView.loadUrl(it.link)
+        }
         progressBar.progressDrawable = this.resources
             .getDrawable(R.drawable.color_progressbar)
         webView.run {
@@ -65,5 +69,11 @@ class WebViewActivity : BaseActivity() {
                 }
             }
         }
+    }
+
+    override fun initVM(): WebViewViewModel = getViewModel()
+
+    override fun startObserve() {
+
     }
 }

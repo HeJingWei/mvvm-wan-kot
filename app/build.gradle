@@ -17,6 +17,15 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        //指定room.schemaLocation生成的文件路径
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = ["room.schemaLocation"  : "$projectDir/schemas".toString(),
+                             "room.incremental"     : "true",
+                             "room.expandProjection": "true"
+                ]
+            }
+        }
     }
 
     compileOptions {
@@ -74,10 +83,12 @@ dependencies {
     implementation Deps.glideTransformations
     implementation Deps.loading_helper
     implementation Deps.l_dialog
+    implementation Deps.auto_size
 
     implementation Deps.room
     implementation Deps.room_ktx
     kapt Deps.room_compiler
+
 
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'

@@ -6,14 +6,14 @@ import androidx.databinding.library.baseAdapters.BR
 import com.chad.library.adapter.base.viewholder.BaseDataBindingHolder
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.adapter.BaseBindAdapter
-import com.example.mvvm_wan_kot.model.bean.Project
+import com.example.mvvm_wan_kot.model.bean.Article
 
 class HomeWxProjectAdapter (layoutResId: Int =R.layout.item_home_wx_project_item) :
-BaseBindAdapter<Project>(layoutResId, BR.project){
+BaseBindAdapter<Article>(layoutResId, BR.project){
     init {
         addChildClickViewIds(R.id.homeProjectCollect)
     }
-    override fun convert(holder: BaseDataBindingHolder<ViewDataBinding>, item: Project) {
+    override fun convert(holder: BaseDataBindingHolder<ViewDataBinding>, item: Article) {
         super.convert(holder, item)
         val view = holder.getView<ImageView>(R.id.homeProjectCollect)
 

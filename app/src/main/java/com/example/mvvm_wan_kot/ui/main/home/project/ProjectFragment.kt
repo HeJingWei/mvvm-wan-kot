@@ -5,7 +5,7 @@ import androidx.lifecycle.Observer
 import com.example.mvvm_wan_kot.R
 import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.view.SpaceItemDecoration
-import com.example.mvvm_wan_kot.ui.common.WebViewActivity
+import com.example.mvvm_wan_kot.ui.common.webview.WebViewActivity
 import com.example.mvvm_wan_kot.ui.main.adapter.HomeProjectAdapter
 import com.example.mvvm_wan_kot.ui.main.adapter.ProjectCategoryAdapter
 import kotlinx.android.synthetic.main.fragment_project.*
@@ -33,8 +33,7 @@ class ProjectFragment : BaseVMFragment<ProjectViewModel>() {
             }
             setEmptyView(R.layout.adapter_empty_view)
             setOnItemClickListener { _, _, position ->
-                val link = homeProjectAdapter.data[position].link
-                WebViewActivity.goDetailActivity(link)
+                WebViewActivity.goDetailActivity(data[position])
             }
         }
         projectCategoryAdapter.run {

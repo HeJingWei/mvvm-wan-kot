@@ -9,6 +9,7 @@ import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.ext.setOnClickListener
 import com.example.mvvm_wan_kot.common.utils.ActivityManager
 import com.example.mvvm_wan_kot.ui.collect.CollectActivity
+import com.example.mvvm_wan_kot.ui.history.HistoryActivity
 import com.example.mvvm_wan_kot.ui.integral.IntegralActivity
 import com.example.mvvm_wan_kot.ui.login.LoginActivity
 import com.example.mvvm_wan_kot.ui.setting.SettingActivity
@@ -28,7 +29,13 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
             setVariable(BR.vm, mViewModel)
         }
 
-        setOnClickListener(homeMineName, homeMineSetting, homeMineIntegral, homeMineCollect) {
+        setOnClickListener(
+            homeMineName,
+            homeMineSetting,
+            homeMineIntegral,
+            homeMineCollect,
+            homeMineHistory
+        ) {
             when (this) {
                 homeMineName -> jumpActivity(LoginActivity::class.java)
                 homeMineSetting -> jumpActivity(SettingActivity::class.java)
@@ -37,6 +44,9 @@ class MineFragment : BaseVMFragment<MineViewModel>() {
                 )
                 homeMineCollect -> checkLogin(
                     then = { jumpActivity(CollectActivity::class.java) }
+                )
+                homeMineHistory -> checkLogin(
+                    then = { jumpActivity(HistoryActivity::class.java) }
                 )
             }
         }

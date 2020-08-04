@@ -9,7 +9,7 @@ import com.example.mvvm_wan_kot.common.ext.setToolbar
 import com.example.mvvm_wan_kot.common.ext.showToast
 import com.example.mvvm_wan_kot.common.view.SpaceItemDecoration
 import com.example.mvvm_wan_kot.ui.collect.adapter.CollectAdapter
-import com.example.mvvm_wan_kot.ui.common.WebViewActivity
+import com.example.mvvm_wan_kot.ui.common.webview.WebViewActivity
 import kotlinx.android.synthetic.main.activity_collect.*
 import org.koin.androidx.viewmodel.ext.android.getViewModel
 
@@ -32,10 +32,11 @@ class CollectActivity : BaseVMActivity<CollectViewModel>() {
         setToolbar(getString(R.string.collect_title), NavIconType.BACK)
 
         collectAdapter.run {
-            setEmptyView(R.layout.adapter_empty_view)
+            recyclerView = collectRecycleView
+            val emptyView = layoutInflater.inflate(R.layout.adapter_empty_view, recyclerView, false)
+            setEmptyView(emptyView)
             setOnItemClickListener { _, _, position ->
-                val link = collectAdapter.data[position].link
-                WebViewActivity.goDetailActivity(link)
+                WebViewActivity.goDetailActivity(data[position])
             }
             loadMoreModule.setOnLoadMoreListener {
                 mViewModel.getCollectList(false)

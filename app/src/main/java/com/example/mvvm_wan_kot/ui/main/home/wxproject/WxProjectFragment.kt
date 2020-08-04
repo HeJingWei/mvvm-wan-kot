@@ -7,7 +7,8 @@ import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.ext.showToast
 import com.example.mvvm_wan_kot.common.ext.toIntPx
 import com.example.mvvm_wan_kot.common.view.SpaceItemDecoration
-import com.example.mvvm_wan_kot.ui.common.WebViewActivity
+import com.example.mvvm_wan_kot.model.bean.Article
+import com.example.mvvm_wan_kot.ui.common.webview.WebViewActivity
 import com.example.mvvm_wan_kot.ui.main.adapter.CategoryAdapter
 import com.example.mvvm_wan_kot.ui.main.adapter.HomeWxProjectAdapter
 import kotlinx.android.synthetic.main.fragment_wx_project.*
@@ -48,8 +49,7 @@ class WxProjectFragment : BaseVMFragment<WxProjectViewModel>() {
                 }
             }
             setOnItemClickListener { _, _, position ->
-                val link = data[position].link
-                WebViewActivity.goDetailActivity(link)
+                WebViewActivity.goDetailActivity(data[position])
             }
             setEmptyView(R.layout.adapter_empty_view)
         }

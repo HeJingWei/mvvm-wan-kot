@@ -6,16 +6,41 @@ import com.example.mvvm_wan_kot.common.base.BaseViewModel
 import com.example.mvvm_wan_kot.model.bean.Article
 import com.example.mvvm_wan_kot.model.bean.HotKey
 
-class SearchViewModel (val searchRepository: SearchRepository) : BaseViewModel(){
+class SearchViewModel(private val searchRepository: SearchRepository) : BaseViewModel() {
 
     private val _uiState = MutableLiveData<SearchUiModel>()
-    val uiState:LiveData<SearchUiModel>
-    get() = _uiState
+    val uiState: LiveData<SearchUiModel>
+        get() = _uiState
 
     var currPage = 0
     var key = ""
 
-    fun getHotKey(){
+    fun getSearchHistory(){
+        launchOnUI(block = {
+            val res = searchRepository.getSearchHistory()
+            emitSearchUiState(historyList = res)
+        })
+    }
+
+    fun addSearchHistory(hotKey: HotKey){
+        launchOnUI(block = {
+            val res = searchRepository.getSearchHistory()
+            res.forEach {
+                if (it.name == hotKey.name) searchRepository.deleteSearchHistory(it)
+            }
+            searchRepository.insertSearchHistory(hotKey)
+            getSearchHistory()
+        })
+    }
+
+    fun deleteSearchHistory(hotKey: HotKey){
+        launchOnUI(block = {
+            searchRepository.deleteSearchHistory(hotKey)
+            getSearchHistory()
+        })
+    }
+
+    fun getHotKey() {
         launchOnUI(
             block = {
                 val res = searchRepository.getHotKey()
@@ -24,17 +49,19 @@ class SearchViewModel (val searchRepository: SearchRepository) : BaseViewModel()
         )
     }
 
-    fun queryArticleList(){
+    fun queryArticleList() {
         emitSearchUiState(showDialogLoading = true)
         launchOnUI(block = {
-            val res = searchRepository.queryArticleList(currPage,key)
-            if (res.offset >= res.total){
-                emitSearchUiState(showEnd = true,showDialogLoading = false)
+            val res = searchRepository.queryArticleList(currPage, key)
+            if (res.offset >= res.total) {
+                emitSearchUiState(showEnd = true, showDialogLoading = false)
                 return@launchOnUI
             }
-            emitSearchUiState(articleList = res.datas,showDialogLoading = false)
+            var data = ArrayList<Article>()
+            data.addAll(res.datas)
+            emitSearchUiState(articleList = data, showDialogLoading = false)
             currPage += 1
-        },error = {
+        }, error = {
             emitSearchUiState(showDialogLoading = false)
         })
     }
@@ -45,15 +72,16 @@ class SearchViewModel (val searchRepository: SearchRepository) : BaseViewModel()
         hotKeyList: List<HotKey>? = null,
         articleList: List<Article>? = null,
         showDialogLoading: Boolean = false
-    ){
-        _uiState.value = SearchUiModel(showEnd,historyList,hotKeyList,articleList,showDialogLoading)
+    ) {
+        _uiState.value =
+            SearchUiModel(showEnd, historyList, hotKeyList, articleList, showDialogLoading)
     }
 
     data class SearchUiModel(
-        val showEnd:Boolean,
-        var historyList:List<HotKey>?,
-        var hotKeyList:List<HotKey>?,
-        var articleList:List<Article>?,
-        val showDialogLoading:Boolean
+        val showEnd: Boolean,
+        var historyList: List<HotKey>?,
+        var hotKeyList: List<HotKey>?,
+        var articleList: List<Article>?,
+        val showDialogLoading: Boolean
     )
 }

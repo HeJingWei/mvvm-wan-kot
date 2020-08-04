@@ -25,6 +25,7 @@
 
     <string name="navigation_title">导航</string>
     <string name="sys_title">体系</string>
+    <string name="history_title">历史记录</string>
 
     <string name="login">登录</string>
     <string name="login_success">登录成功</string>
