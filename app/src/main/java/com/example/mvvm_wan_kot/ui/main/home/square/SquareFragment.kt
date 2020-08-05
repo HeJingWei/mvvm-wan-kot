@@ -1,5 +1,6 @@
 package com.example.mvvm_wan_kot.ui.main.home.square
 
+import android.util.Log
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.Observer
 import com.example.mvvm_wan_kot.R
@@ -7,7 +8,9 @@ import com.example.mvvm_wan_kot.common.base.BaseVMFragment
 import com.example.mvvm_wan_kot.common.ext.showToast
 import com.example.mvvm_wan_kot.ui.common.webview.WebViewActivity
 import com.example.mvvm_wan_kot.ui.main.adapter.HomeSquareAdapter
+import com.example.mvvm_wan_kot.ui.main.home.project.ProjectViewModel
 import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.sharedViewModel
 
 class SquareFragment : BaseVMFragment<SquareViewModel>() {
     override fun getLayoutResId() = R.layout.fragment_square
@@ -21,7 +24,6 @@ class SquareFragment : BaseVMFragment<SquareViewModel>() {
             setVariable(BR.vm, mViewModel)
             setVariable(BR.adapter, squareAdapter)
         }
-
         squareAdapter.run {
             setOnItemClickListener { _, _, position ->
                 WebViewActivity.goDetailActivity(data[position])

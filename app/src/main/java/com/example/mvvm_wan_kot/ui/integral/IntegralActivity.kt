@@ -1,5 +1,6 @@
 package com.example.mvvm_wan_kot.ui.integral
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import androidx.databinding.DataBindingUtil

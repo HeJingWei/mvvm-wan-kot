@@ -59,7 +59,7 @@ public class StateButton extends AppCompatButton {
     }
 
     public StateButton(Context context, AttributeSet attrs) {
-        this(context, attrs, androidx.appcompat.R.attr.buttonStyle);
+        this(context, attrs, androidx.appcompat.R.attr.borderlessButtonStyle);
     }
 
     public StateButton(Context context, AttributeSet attrs, int defStyleAttr) {

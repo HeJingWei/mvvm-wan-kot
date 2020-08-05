@@ -1,5 +1,6 @@
 package com.example.mvvm_wan_kot.ui.main.home.project
 
+import android.util.Log
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.Observer
 import com.example.mvvm_wan_kot.R
@@ -9,7 +10,7 @@ import com.example.mvvm_wan_kot.ui.common.webview.WebViewActivity
 import com.example.mvvm_wan_kot.ui.main.adapter.HomeProjectAdapter
 import com.example.mvvm_wan_kot.ui.main.adapter.ProjectCategoryAdapter
 import kotlinx.android.synthetic.main.fragment_project.*
-import org.koin.androidx.viewmodel.ext.android.getViewModel
+import org.koin.androidx.viewmodel.ext.android.getSharedViewModel
 
 class ProjectFragment : BaseVMFragment<ProjectViewModel>() {
     override fun getLayoutResId() = R.layout.fragment_project
@@ -17,8 +18,7 @@ class ProjectFragment : BaseVMFragment<ProjectViewModel>() {
     private val projectCategoryAdapter by lazy { ProjectCategoryAdapter() }
     private val homeProjectAdapter by lazy { HomeProjectAdapter() }
 
-    override fun initVM(): ProjectViewModel = getViewModel()
-
+    override fun initVM(): ProjectViewModel = getSharedViewModel()
     override fun initView() {
         mBinding.run {
             setVariable(BR.vm, mViewModel)
