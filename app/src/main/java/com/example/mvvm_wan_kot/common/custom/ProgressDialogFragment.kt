@@ -10,9 +10,6 @@ import androidx.fragment.app.FragmentManager
 import com.example.mvvm_wan_kot.R
 import kotlinx.android.synthetic.main.fragment_progress_dialog.*
 
-/**
- * Created by xiaojianjun on 2019-11-26.
- */
 class ProgressDialogFragment : DialogFragment() {
 
     private var messageResId: Int? = null

@@ -15,7 +15,6 @@ import org.koin.androidx.viewmodel.ext.android.getViewModel
 
 class LoginActivity : BaseVMActivity<LoginViewModel>() {
 
-
     override fun getLayoutResId(): Int {
         return R.layout.activity_login
     }
