@@ -21,5 +21,6 @@
     * loading_helper
     * l_dialog
     * auto_size
+    * noDrawable
   
 
