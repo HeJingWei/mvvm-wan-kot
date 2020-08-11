@@ -1,6 +1,5 @@
 package com.example.mvvm_wan_kot.ui.main.home.project
 
-import android.util.Log
 import androidx.databinding.library.baseAdapters.BR
 import androidx.lifecycle.Observer
 import com.example.mvvm_wan_kot.R

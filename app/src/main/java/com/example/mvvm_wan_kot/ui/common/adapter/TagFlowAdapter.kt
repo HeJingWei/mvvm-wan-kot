@@ -9,7 +9,7 @@ import com.zhy.view.flowlayout.FlowLayout
 import com.zhy.view.flowlayout.TagAdapter
 import kotlinx.android.synthetic.main.item_nav_tag.view.*
 
-class TagFlowAdapter(val tags: List<Article>) : TagAdapter<Article>(tags) {
+class TagFlowAdapter(private val tags: List<Article>) : TagAdapter<Article>(tags) {
     override fun getView(parent: FlowLayout?, position: Int, t: Article?): View {
         return LayoutInflater.from(parent?.context)
             .inflate(R.layout.item_nav_tag, parent, false)
@@ -19,7 +19,7 @@ class TagFlowAdapter(val tags: List<Article>) : TagAdapter<Article>(tags) {
     }
 }
 
-class SearchTagAdapter(val tags: List<HotKey>) : TagAdapter<HotKey>(tags) {
+class SearchTagAdapter(private val tags: List<HotKey>) : TagAdapter<HotKey>(tags) {
     override fun getView(parent: FlowLayout?, position: Int, t: HotKey?): View {
         return LayoutInflater.from(parent?.context)
             .inflate(R.layout.item_nav_tag, parent, false)

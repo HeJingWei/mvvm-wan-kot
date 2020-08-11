@@ -4,13 +4,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class TabFragmentPagerAdapter : FragmentPagerAdapter {
-
-    private var list:MutableList<Fragment>
-
-    constructor(list:MutableList<Fragment>,fm: FragmentManager, behavior: Int) : super(fm, behavior){
-        this.list = list
-    }
+class TabFragmentPagerAdapter(
+    private var list: MutableList<Fragment>,
+    fm: FragmentManager,
+    behavior: Int
+) : FragmentPagerAdapter(fm, behavior) {
 
     override fun getItem(position: Int) = list[position]
 

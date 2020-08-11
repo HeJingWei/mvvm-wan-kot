@@ -73,6 +73,7 @@
                     android:textSize="13sp"
                     android:textColor="@color/textColorPrimary"
                     android:text="热门搜索"
+
                     />
                 <com.zhy.view.flowlayout.TagFlowLayout
                     android:layout_width="match_parent"
