@@ -1,4 +1,4 @@
-# 使用mvvm+kotlin+jetpack搭建一个wanandroid客户端
+# 使用mvvm+kotlin+jetpack搭建一个wanandroid客户端 （设计简单，已过时）
 
 ## 涉及到的技术包括：
   * kotlin和协程
